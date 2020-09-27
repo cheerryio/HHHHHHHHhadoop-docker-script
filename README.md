@@ -19,22 +19,27 @@
 
 ## Get the hadoop docker image
 
-### Using the docker image from dockerhub
-```
-docker pull cherrooo/hadoop:1.0
-./start-container.sh
-```
+There are two ways to get the docker image for the project
 
-### Build your hadoop image
-First you need download hadoop-3.1.4.tar.gz from hadoop's official website(place it in the repository's root directory). There is no need for you to unpack the as the script would do it for you
+1. ### Using the docker image from dockerhub
+    ```
+    docker pull cherrooo/hadoop:1.0
+    ./start-container.sh
+    ```
 
-Type
-```
-./resize-cluster.sh 3
-```
+2. ### Build your hadoop image
+    First you need download hadoop-3.1.4.tar.gz from hadoop's official website(place it in the repository's root directory). There is no need for you to unpack the as the script would do it for you
 
-Then you would be in the hadoop-master container
-type the command
+    Type the command below. This would auto build a docker image according to Dockerfile
+    ```
+    ./resize-cluster.sh 3
+    ```
+
+After getting the neccessary docker image, run
+```
+./start_container.sh
+```
+Then you would be in the hadoop-master container, please type the command below to start hadoop master and hadoop slaves
 ```
 ./start-hadoop.sh
 ```
@@ -44,4 +49,4 @@ To test your hadoop cluster, type
 ./run-wordcount.sh
 ```
 
-Also, you can find more information in **127.0.0.1:8088** and **127.0.0.1:9870**
+Also, you can find more information about hadoop in **127.0.0.1:8088** and **127.0.0.1:9870**
