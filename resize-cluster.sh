@@ -13,10 +13,13 @@ fi
 i=1
 rm config/slaves
 rm config/workers		#NOTE:ADDITIONAL ADDING
+echo "cluster-master" >> config/slaves
+echo "cluster-master" >> config/workers
+
 while [ $i -lt $N ]
 do
-	echo "hadoop-slave$i" >> config/slaves
-	echo "hadoop-slave$i" >> config/workers	#NOTE:ADDITIONAL ADDING
+	echo "cluster-worker$i" >> config/slaves
+	echo "cluster-worker$i" >> config/workers	#NOTE:ADDITIONAL ADDING
 	((i++))
 done 
 
@@ -26,6 +29,6 @@ echo -e "\nbuild docker hadoop image\n"
 
 # rebuild kiwenlau/hadoop image
 # NOTE:UPDATE ORIGINAL AUTHOR'S NAME TO MINE
-sudo docker build -t cherrooo/hadoop:1.0 .
+sudo docker build -t cherrooo/hadoop:2.0 .
 
 echo ""

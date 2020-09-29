@@ -1,2 +1,3 @@
-hadoop-slave1
-hadoop-slave2
+cluster-master
+cluster-worker1
+cluster-worker2

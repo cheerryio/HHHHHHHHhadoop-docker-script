@@ -22,7 +22,7 @@
 # remote nodes.
 
 # The java implementation to use.
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.265.b01-0.el8_2.x86_64
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes
 # that bind to privileged ports to provide authentication of data transfer
@@ -102,3 +102,5 @@ export HDFS_DATANODE_USER="root"
 export HDFS_SECONDARYNAMENODE_USER="root"
 export YARN_RESOURCEMANAGER_USER="root"
 export YARN_NODEMANAGER_USER="root"
+export HADOOP_SHELL_EXECNAME="root"
+export HDFS_DATANODE_SECURE_USER="root"
