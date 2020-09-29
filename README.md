@@ -1,19 +1,9 @@
-# Docker-Hadoop-Script
+# Docker-Hadoop-Script(specified to my own homework 5555)
 
-**Inherited from** [https://github.com/kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker)
-
-**Original author:** kiwenlau
-
-# Few Updates
-
-1. Update hadoop version from 2.7.2 to 3.1.4
-2. Update java version from openjdk-7-jdk to openjdk-8-jdk(may be to follow up hadoop version)
-3. Resources on port 50070 has been moved to port 9870 due hadoop version update
-   
-# Alertation
-
-1. You can search in github(in this repository) `# NOTE` to find out where I edited.Compare with the original repository and customize your own hadoop-docker-script
-2. From hadoop3.0,config file that records slaves' host(or ip),has been moved to $HADOOP_HOME/etc/hadoop/workers instead of $HADOOP_HOME/etc/hadoop/slaves.Attention here!
+# Homework Requirements
+1. Centos
+2. Hadoop-3.2.1
+3. Master node with ResourceManager,DataNode,NameNode,NodeManager,SecondaryNameNode while worker node with DataNode and NameNode
    
 # Simple usage
 
@@ -23,23 +13,15 @@ There are two ways to get the docker image for the project
 
 1. ### Using the docker image from dockerhub
     ```
-    docker pull cherrooo/hadoop:1.0
+    docker pull cherrooo/hadoop:2.0
     ./start-container.sh
-    ```
-
-2. ### Build your hadoop image
-    First you need download hadoop-3.1.4.tar.gz from hadoop's official website(place it in the repository's root directory). There is no need for you to unpack the as the script would do it for you
-
-    Type the command below. This would auto build a docker image according to Dockerfile
-    ```
-    ./resize-cluster.sh 3
     ```
 
 After getting the neccessary docker image, run
 ```
 ./start_container.sh
 ```
-Then you would be in the hadoop-master container, please type the command below to start hadoop master and hadoop slaves
+Then you would be in the hadoop-master container, please type the command below to start hadoop master and hadoop workers
 ```
 ./start-hadoop.sh
 ```
@@ -49,4 +31,4 @@ To test your hadoop cluster, type
 ./run-wordcount.sh
 ```
 
-Also, you can find more information about hadoop in **127.0.0.1:8088** and **127.0.0.1:9870**
+Also, you can find more information about hadoop in **10.0.0.2:9870** and **10.0.0.2:18088**
